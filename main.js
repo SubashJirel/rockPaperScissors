@@ -25,12 +25,15 @@ function checkWin(playerSelection, computerSelection) { //checkWIn
     // your code here!
     if((playerSelection == 'rock'&& computerSelection == 'scissors') || (playerSelection == 'scissors'&& computerSelection == 'paper') || (playerSelection == 'paper'&& computerSelection == 'rock'))
     {
+        console.log(`You won this round!! ${playerSelection} beats ${computerSelection}`)
         return 'player'
     }
     else if(playerSelection == computerSelection) {
+        console.log(`It's a draawww!!!`)
         return 'draw'
     }
     else {
+        console.log(`You lost this round!! ${computerSelection} beats ${playerSelection}`)
         return 'computer'
     }
   }
