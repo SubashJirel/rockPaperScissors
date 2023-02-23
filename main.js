@@ -1,4 +1,18 @@
+function checkWin(playerSelection, computerSelection) { //checkWIn
+    // your code here!
+    if((playerSelection == 'rock'&& computerSelection == 'scissors') || (playerSelection == 'scissors'&& computerSelection == 'paper') || (playerSelection == 'paper'&& computerSelection == 'rock'))
+    {
+        return 'player'
+    }
+    else if(playerSelection == computerSelection) {
+        return 'draw'
+    }
+    else {
+        return 'computer'
+    }
+  }
 
+ 
 function getComputerChoice() {
     let rand = Math.random();
     if(rand <0.333333) {
@@ -13,4 +27,4 @@ function getComputerChoice() {
 }
   const playerSelection = "rock";
   const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+  console.log(checkWin(playerSelection, computerSelection));
