@@ -1,9 +1,9 @@
 
-function game() {
+function game(event) {
     let playerScore = 0
     let computerScore = 0
     while(playerScore<5 && computerScore<5) {
-        let playerSelection = prompt("Enter your choice").toLowerCase()
+        let playerSelection = event.target.innerText;
         let computerSelection= getComputerChoice().toLowerCase()
         let win = checkWin(playerSelection,computerSelection)
 
@@ -50,4 +50,35 @@ function getComputerChoice() {
         return 'scissors';
     }
 }
-game()
+// game()
+const rock = document.querySelector('.rockButton')
+const paper = document.querySelector('.paperButton')
+const scissor = document.querySelector('.scissorButton')
+
+rock.addEventListener('click',game)
+paper.addEventListener('click',game)
+scissor.addEventListener('click',game)
+
+const allButtons = document.querySelectorAll('.allButtons')
+
+
+//Starting the game at first
+document.querySelector('.startGame').addEventListener('click',startGame)
+
+function startGame(event) {
+    document.querySelector('.resetGame').classList.toggle('hide')
+    document.querySelector('.startGame').classList.toggle('hide')
+    allButtons.forEach(btn => btn.classList.toggle('hide'))
+
+}
+
+//reset the game 
+document.querySelector('.resetGame').addEventListener('click',resetGame)
+
+function resetGame(event) {
+    document.querySelector('.startGame').classList.toggle('hide')
+    document.querySelector('.resetGame').classList.toggle('hide')
+    allButtons.forEach(btn => btn.classList.toggle('hide'))
+
+
+}
